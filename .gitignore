@@ -2,3 +2,4 @@
 uploads/
 *.pyc
 py_cache/
+candidatos.db

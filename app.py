@@ -3,6 +3,7 @@ from flask import Flask, flash, redirect, render_template, request
 from pathlib import Path
 from werkzeug.utils import secure_filename
 import os
+from models import Candidato
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = 'uploads'
@@ -17,6 +18,20 @@ def index():
         if not email:
             flash('Email is required')
             return redirect(request.url)
+
+        # Save the candidate
+        candidato = Candidato(
+            id=str(uuid.uuid4()),
+            first_name=request.form.get('first_name'),
+            last_name=request.form.get('last_name'),
+            email=email,
+            address=request.form.get('address'),
+            phone=request.form.get('phone'),
+            education=request.form.get('education'),
+            experience=request.form.get('experience'),
+            languages=request.form.get('languages')
+        )
+        candidato.save()
 
         # Create a folder with the canonical version of the email
         folder_name = email.lower().replace('@', '-').replace('.', '_')
