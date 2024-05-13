@@ -1,5 +1,5 @@
 import uuid
-from flask import Flask, flash, redirect, render_template, request
+from flask import Flask, flash, redirect, render_template, request, send_from_directory
 from pathlib import Path
 from werkzeug.utils import secure_filename
 import os
@@ -8,6 +8,11 @@ from models import Candidato
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = 'uploads'
 app.secret_key =  'super secret key'
+
+# Static folder
+@app.route('/uploads/<path:filename>')
+def download_file(filename):
+    return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
 
 
 @app.route('/', methods=['GET', 'POST'])
