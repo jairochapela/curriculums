@@ -40,7 +40,7 @@
         </div>
     </header>
 
-    <div id="formulario" class="container mb-3 mt-2">
+    <div id="formulario" class="container mb-3 mt-4">
 
         <h2>Formulario de registro de candidatos</h2>
         <p>Por favor, rellene los campos para completar su perfil</p>
@@ -58,139 +58,197 @@
         {% endwith %}
 
         <form action="" method="post" enctype="multipart/form-data">
-            <div class="mb-3">
-                <label for="first_name" class="form-label required">Nombre</label>
-                <input type="text" class="form-control" id="first_name" name="first_name" required>
-            </div>
-            <div class="mb-3">
-                <label for="last_name" class="form-label required">Apellidos</label>
-                <input type="text" class="form-control" id="last_name" name="last_name" required>
-            </div>
-            <div class="mb-3">
-                <label for="dob" class="form-label">Fecha de nacimiento</label>
-                <input type="date" class="form-control" id="dob" name="dob">
-            </div>
-            <div class="mb-3">
-                <label for="phone" class="form-label required">Teléfono</label>
-                <input type="tel" class="form-control" id="phone" name="phone" required>
-            </div>
-            <div class="mb-3">
-                <label for="email" class="form-label required">Email</label>
-                <input type="email" class="form-control" id="email" name="email" required>
-            </div>
-            <div class="mb-3">
-                <label for="address" class="form-label required">Dirección</label>
-                <input type="text" class="form-control" id="address" name="address" required>
-            </div>
-            <div class="mb-3">
-                <label for="education" class="form-label">Nivel de estudios</label>
-                <select class="form-select" id="education" name="education">
-                    <option selected>Seleccione uno</option>
-                    <option value="1">Educación básica / F.P.</option>
-                    <option value="2">Bachillerato</option>
-                    <option value="3">Licenciatura</option>
-                    <option value="4">Ingeniería</option>
-                    <option value="5">Maestría</option>
-                    <option value="6">Doctorado</option>
-                </select>
-            </div>
-            <!-- <div class="mb-3">
-                <label for="experience" class="form-label">Experiencia laboral</label>
-                <textarea class="form-control" id="experience" name="experience" rows="3"></textarea>
-            </div> -->
-            <div class="mb-3">
-                <label for="experience" class="form-label">Experiencia laboral</label>
-                <table class="table">
-                    <thead>
-                        <tr>
-                           <th>Ocupación</th>
-                            <th>Años de experiencia</th> 
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>
-                                <input type="text" class="form-control" id="occupation1" name="occupation1" required>
-                            </td>
-                            <td>
-                                <select name="experience1" id="experience1">
-                                    <option value="0">Menos de 2 años</option>
-                                    <option value="1">Entre 2 y 5 años</option>
-                                    <option value="2">Entre 5 y 10 años</option>
-                                    <option value="3">Más de 10 años</option>
-                                </select>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input type="text" class="form-control" id="occupation1" name="occupation1" required>
-                            </td>
-                            <td>
-                                <select name="experience1" id="experience1" class="form-select">
-                                    <option value="0">Menos de 2 años</option>
-                                    <option value="1">Entre 2 y 5 años</option>
-                                    <option value="2">Entre 5 y 10 años</option>
-                                    <option value="3">Más de 10 años</option>
-                                </select>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-                <button class="btn btn-success">Añadir experiencia</button>
-            </div>
-            <div class="mb-3">
-                <label for="skills" class="form-label">Habilidades</label>
-                <textarea class="form-control" id="skills" rows="3" name="skills" required></textarea>
-            </div>
-            <div class="mb-3">
-                <label for="languages" class="form-label required">Idiomas</label>
-                <input type="text" class="form-control" id="languages" name="languages" required>
+            <div class="accordion" id="secciones">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseZero" aria-expanded="true" aria-controls="collapseZero">
+                          Datos personales
+                        </button>
+                    </h2>
+                    <div id="collapseZero" class="accordion-collapse collapse container show" data-bs-parent="#secciones">
+                        <div class="accordion-body">
+                            <div class="mb-3">
+                                <label for="first_name" class="form-label required">Nombre</label>
+                                <input type="text" class="form-control" id="first_name" name="first_name" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="last_name" class="form-label required">Apellidos</label>
+                                <input type="text" class="form-control" id="last_name" name="last_name" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="dob" class="form-label">Fecha de nacimiento</label>
+                                <input type="date" class="form-control" id="dob" name="dob">
+                            </div>
+                            <div class="mb-3">
+                                <label for="phone" class="form-label required">Teléfono</label>
+                                <input type="tel" class="form-control" id="phone" name="phone" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label required">Email</label>
+                                <input type="email" class="form-control" id="email" name="email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="address" class="form-label required">Dirección</label>
+                                <input type="text" class="form-control" id="address" name="address" required>
+                            </div>
+
+                            <!-- <button class="btn btn-success" onclick="avanzar('collapseOne')">Siguiente</button> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                          Estudios y experiencia
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse container" data-bs-parent="#secciones">                
+                        <div class="mb-3">
+                            <label for="education" class="form-label">Nivel de estudios</label>
+                            <select class="form-select" id="education" name="education">
+                                <option selected>Seleccione uno</option>
+                                <option value="1">Educación básica / F.P.</option>
+                                <option value="2">Bachillerato</option>
+                                <option value="3">Licenciatura</option>
+                                <option value="4">Ingeniería</option>
+                                <option value="5">Maestría</option>
+                                <option value="6">Doctorado</option>
+                            </select>
+                        </div>
+                        <!-- <div class="mb-3">
+                            <label for="experience" class="form-label">Experiencia laboral</label>
+                            <textarea class="form-control" id="experience" name="experience" rows="3"></textarea>
+                        </div> -->
+                        <div class="mb-3">
+                            <label for="experience" class="form-label">Experiencia laboral</label>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                    <th>Ocupación</th>
+                                        <th>Años de experiencia</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <input type="text" class="form-control" id="occupation1" name="occupation1" required>
+                                        </td>
+                                        <td>
+                                            <select name="experience1" id="experience1">
+                                                <option value="0">Menos de 2 años</option>
+                                                <option value="1">Entre 2 y 5 años</option>
+                                                <option value="2">Entre 5 y 10 años</option>
+                                                <option value="3">Más de 10 años</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type="text" class="form-control" id="occupation1" name="occupation1" required>
+                                        </td>
+                                        <td>
+                                            <select name="experience1" id="experience1" class="form-select">
+                                                <option value="0">Menos de 2 años</option>
+                                                <option value="1">Entre 2 y 5 años</option>
+                                                <option value="2">Entre 5 y 10 años</option>
+                                                <option value="3">Más de 10 años</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <button class="btn btn-success">Añadir experiencia</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                          Habilidades y idiomas
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse container" data-bs-parent="#secciones">                
+                        <div class="mb-3">
+                            <label for="skills" class="form-label">Habilidades</label>
+                            <textarea class="form-control" id="skills" rows="3" name="skills" required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="languages" class="form-label required">Idiomas</label>
+                            <input type="text" class="form-control" id="languages" name="languages" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                          Intereses laborales
+                        </button>
+                    </h2>
+                    <div id="collapseThree" class="accordion-collapse collapse container" data-bs-parent="#secciones">                
+                
+                        <label for="departments" class="form-label">Departamentos de interés</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="1" id="department1">
+                            <label class="form-check-label" for="department1">
+                                Contabilidad
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="2" id="department2">
+                            <label class="form-check-label" for="department2">
+                                Recursos humanos
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="3" id="department3">
+                            <label class="form-check-label" for="department3">
+                                Marketing
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="4" id="department4">
+                            <label class="form-check-label" for="department4">
+                                I.T.
+                            </label>
+                        </div>
+                        <!-- Add more departments as needed -->
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+                          Documentación
+                        </button>
+                    </h2>
+                    <div id="collapseFour" class="accordion-collapse collapse container" data-bs-parent="#secciones">                
+                        <div class="mb-3">
+                            <label for="resume" class="form-label">Currículum</label>
+                            <input type="file" class="form-control" id="resume" name="resume">
+                        </div>
+                        <div class="mb-3">
+                            <label for="certifications" class="form-label">Certificaciones</label>
+                            <input type="file" class="form-control" id="certifications" name="certifications" multiple>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-lg">Enviar</button>
+                        <button type="reset" class="btn btn-outline-secondary btn-sm">Borrar formulario</button>
+                    </div>
+                </div> 
             </div>
 
-            
-            <label for="departments" class="form-label">Departamentos de interés</label>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="1" id="department1">
-                <label class="form-check-label" for="department1">
-                    Contabilidad
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="2" id="department2">
-                <label class="form-check-label" for="department2">
-                    Recursos humanos
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="3" id="department3">
-                <label class="form-check-label" for="department3">
-                    Marketing
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="4" id="department4">
-                <label class="form-check-label" for="department4">
-                    I.T.
-                </label>
-            </div>            
-            <!-- Add more departments as needed -->            
-
-
-            <div class="mb-3">
-                <label for="resume" class="form-label">Currículum</label>
-                <input type="file" class="form-control" id="resume" name="resume">
-            </div>
-            <div class="mb-3">
-                <label for="certifications" class="form-label">Certificaciones</label>
-                <input type="file" class="form-control" id="certifications" name="certifications" multiple>
-            </div>
-
-            <button type="submit" class="btn btn-primary btn-lg">Enviar</button>
-            <button type="reset" class="btn btn-outline-secondary btn-sm">Borrar formulario</button>
-
-        </div>
+        </form>
     </div>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        function avanzar(id) {
+            document.querySelectorAll('.collapse').forEach(function (el) {
+                el.classList.remove('show');
+            });
+
+            document.getElementById(id).classList.add('show');
+        }
+    </script>
 </body>
 </html>
