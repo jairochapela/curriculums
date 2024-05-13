@@ -22,6 +22,12 @@
         header .hdr img {
             margin-bottom: 1rem;
         }
+
+        label.required::after {
+            content: " *";
+            color: red;
+        }
+
     </style>
 </head>
 <body>
@@ -39,6 +45,8 @@
         <h2>Formulario de registro de candidatos</h2>
         <p>Por favor, rellene los campos para completar su perfil</p>
 
+        <p class="small">Los campos marcados con (*) son obligatorios.</p>
+
         {% with messages = get_flashed_messages() %}
         {% if messages %}
           <ul class="flashes text-danger">
@@ -51,11 +59,11 @@
 
         <form action="" method="post" enctype="multipart/form-data">
             <div class="mb-3">
-                <label for="first_name" class="form-label">Nombre</label>
+                <label for="first_name" class="form-label required">Nombre</label>
                 <input type="text" class="form-control" id="first_name" name="first_name" required>
             </div>
             <div class="mb-3">
-                <label for="last_name" class="form-label">Apellidos</label>
+                <label for="last_name" class="form-label required">Apellidos</label>
                 <input type="text" class="form-control" id="last_name" name="last_name" required>
             </div>
             <div class="mb-3">
@@ -63,15 +71,15 @@
                 <input type="date" class="form-control" id="dob" name="dob">
             </div>
             <div class="mb-3">
-                <label for="phone" class="form-label">Teléfono</label>
+                <label for="phone" class="form-label required">Teléfono</label>
                 <input type="tel" class="form-control" id="phone" name="phone" required>
             </div>
             <div class="mb-3">
-                <label for="email" class="form-label">Email</label>
+                <label for="email" class="form-label required">Email</label>
                 <input type="email" class="form-control" id="email" name="email" required>
             </div>
             <div class="mb-3">
-                <label for="address" class="form-label">Dirección</label>
+                <label for="address" class="form-label required">Dirección</label>
                 <input type="text" class="form-control" id="address" name="address" required>
             </div>
             <div class="mb-3">
@@ -118,7 +126,7 @@
                                 <input type="text" class="form-control" id="occupation1" name="occupation1" required>
                             </td>
                             <td>
-                                <select name="experience1" id="experience1">
+                                <select name="experience1" id="experience1" class="form-select">
                                     <option value="0">Menos de 2 años</option>
                                     <option value="1">Entre 2 y 5 años</option>
                                     <option value="2">Entre 5 y 10 años</option>
@@ -135,7 +143,7 @@
                 <textarea class="form-control" id="skills" rows="3" name="skills" required></textarea>
             </div>
             <div class="mb-3">
-                <label for="languages" class="form-label">Idiomas</label>
+                <label for="languages" class="form-label required">Idiomas</label>
                 <input type="text" class="form-control" id="languages" name="languages" required>
             </div>
 
