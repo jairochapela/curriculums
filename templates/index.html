@@ -8,24 +8,29 @@
     <style>
         header {
             background-color: #f8f9fa;
-            background-image: url({{ url_for('static', filename='img/header.jpg') }});
             padding: 1rem;
             text-align: center;
-            min-height: 500px;
+            height: 100vh;
         }
         header .hdr {
-            color: black;
+            color: white;
+            text-shadow: black 1px 1px 8px;
             top: 200px;
             position: relative;
+        }
+
+        header .hdr img {
+            margin-bottom: 1rem;
         }
     </style>
 </head>
 <body>
 
-    <header>
+    <header style="background-image: url({{ url_for('static', filename='img/header.jpg') }});">
         <div class="hdr">
+            <img src="{{ url_for('static', filename='img/logo.png') }}" alt="ACME">
             <h1>¿Quieres trabajar con nosotros?</h1>
-            <a href="#formulario" class="btn btn-success">Inscríbete</a>
+            <a href="#formulario" class="btn btn-success btn-lg">Inscríbete</a>
         </div>
     </header>
 
