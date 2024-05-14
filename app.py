@@ -14,10 +14,14 @@ app.secret_key =  'super secret key'
 def download_file(filename):
     return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
 
+@app.route('/thankyou')
+def thankyou():
+    return render_template('thankyou.html')
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
     if request.method == 'POST':
+        return redirect('/thankyou')
         # Get the form data
         email = request.form.get('email')
         if not email:
